@@ -19,37 +19,22 @@ std::vector<std::string> solution(const std::string& s)
     string temp;
     int len = s.length();
 
+    for (int i = 0; i < len; i = i + 2)
+    {
+        vec.push_back(s.substr(i, 2));
+    }
+
     if (len % 2)
     {
-        for (int i = 0; i < len-1; i = i + 2)
-        {
-            temp.clear();
-            temp.push_back(s[i]);
-            temp.push_back(s[i + 1]);
-            vec.push_back(temp);
-        }
-
-        temp.clear();
-        temp.push_back(s[len - 1]);
-        temp.push_back('_');
-        vec.push_back(temp);
-    }
-    else
-    {
-        for (int i = 0; i < len; i = i + 2)
-        {
-            temp.clear();
-            temp.push_back(s[i]);
-            temp.push_back(s[i + 1]);
-            vec.push_back(temp);
-        }
+        vec[vec.size() - 1].push_back('_');
     }
 
-    return vec; 
+    return vec;
 }
 
 int main()
 {
+
     vector<string> temp = solution("abcde");
     for (int i = 0; i < temp.size(); i++)
     {
@@ -70,5 +55,6 @@ int main()
         cout << temp[i] << " ";
     }
     cout << endl;
+
 
 }
