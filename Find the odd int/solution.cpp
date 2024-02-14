@@ -40,6 +40,7 @@ int main()
     std::cout << findOdd(vec6) << "\n" << std::endl;
 }
 
+/*
 int findOdd(const std::vector<int>& numbers) 
 {
     std::vector<std::vector<int>> vec2d;
@@ -91,6 +92,25 @@ int findOdd(const std::vector<int>& numbers)
         }
     }
     return 0;
+}
+*/
+
+int findOdd(const std::vector<int>& numbers) {
+    int result = 0;
+    bitset<8> y;
+    bitset<8> x;
+    for (auto& num : numbers) {
+        y = result;
+        x = num;
+
+        cout << "("<<result << ")" << y << " ^ " << "(" << num << ")" << x << " = ";
+
+        result = result ^ num;
+
+        y = result;
+        cout << "(" << result << ")" << y << endl;
+    }
+    return result;
 }
 
 
